@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نَفَس | آرشیو مداحی</title>
+<style>
+:root{--site-primary:#137a55;--site-on-primary:#fff;--site-secondary:#172b36;--site-on-secondary:#f4f7f5;--site-background:#0b151b;--site-on-background:#edf5f1;--site-font-body:Tahoma,"Segoe UI",sans-serif;--site-font-heading:Tahoma,"Segoe UI",sans-serif;--site-heading-scale:1;--site-spacing-scale:1;--site-radius-scale:1;--site-decoration-opacity:1;--bg:#0b151b;--surface:#111f27;--surface2:#172932;--border:#263b44;--muted:#8ca29e;--text:#edf5f1;--green:#3bd39a;--gold:#d7b66a;--danger:#e87979}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--site-font-body);font-size:14px}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:0}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.app{min-height:100vh;background-color:var(--site-background);color:var(--site-on-background);border-radius:0}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--border);background:#0d1a21;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(145deg,#36d59a,#0e704e);display:grid;place-items:center;color:#062419;font-size:23px;font-weight:900;box-shadow:0 8px 25px #16a87525}
+.brand-name{font-size:22px;font-weight:800;letter-spacing:-.5px}
+.brand-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.top-actions{display:flex;align-items:center;gap:10px}
+.iconbtn,.secondary{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:10px 13px;border-radius:12px}
+.main{max-width:1200px;margin:auto;padding:34px 26px 60px}
+.welcome{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.eyebrow{color:var(--green);font-size:12px;font-weight:700;letter-spacing:.4px}
+.welcome h1{font-size:calc(30px * var(--site-heading-scale));margin:9px 0 8px;letter-spacing:-.8px}
+.welcome p{margin:0;color:var(--muted);line-height:1.9}
+.primary{background:var(--site-primary);color:var(--site-on-primary);padding:13px 18px;border-radius:13px;font-weight:700;box-shadow:0 7px 22px #137a552b}
+.primary:hover{filter:brightness(1.1)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:28px}
+.stat{background:linear-gradient(140deg,var(--surface),#101c23);border:1px solid var(--border);border-radius:18px;padding:19px;display:flex;align-items:center;gap:14px}
+.stat-ico{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#173c31;color:var(--green);font-size:20px}
+.stat small{display:block;color:var(--muted);margin-bottom:7px}
+.stat strong{font-size:24px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:25px 0 17px}
+.toolbar h2{font-size:19px;margin:0}
+.search{position:relative;max-width:330px;width:100%}
+.search input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 40px 12px 14px;color:var(--text)}
+.search span{position:absolute;right:14px;top:11px;color:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter{padding:8px 13px;border-radius:10px;background:transparent;border:1px solid var(--border);color:var(--muted)}
+.filter.active{background:#153b2e;color:var(--green);border-color:#235e48}
+.library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.song{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;transition:.18s;min-width:0;cursor:pointer}
+.song:hover{transform:translateY(-2px);border-color:#356353}
+.song:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.song-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.song-symbol{width:46px;height:46px;border-radius:14px;background:#1a302f;display:grid;place-items:center;color:var(--green);font-size:21px}
+.more{background:transparent;color:var(--muted);font-size:22px;padding:0 4px}
+.song h3{font-size:16px;margin:16px 0 8px}
+.song p{color:var(--muted);font-size:12px;line-height:1.9;margin:0;min-height:44px}
+.song-meta{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:14px;margin-top:15px;color:var(--muted);font-size:11px}
+.tag{color:var(--green);background:#15372c;padding:5px 8px;border-radius:8px}
+.song-actions{display:flex;gap:8px;margin-top:14px}
+.song-actions button{flex:1;border-radius:10px;padding:10px 8px}
+.open-song{background:#1d4035;color:#8bf0c6}
+.edit-song{background:var(--surface2);color:#c0d0ca}
+.empty{grid-column:1/-1;border:1px dashed var(--border);border-radius:18px;padding:45px;text-align:center;color:var(--muted)}
+.footer-note{margin-top:28px;padding:16px 18px;background:#101d23;border:1px solid var(--border);border-radius:14px;color:var(--muted);font-size:12px;line-height:1.9}
+.footer-note b{color:var(--green)}
+.overlay{position:fixed;inset:0;background:#02090cc9;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
+.overlay.show{display:flex}
+.modal{width:min(720px,100%);max-height:90vh;overflow:auto;background:#101f27;border:1px solid #2d454e;border-radius:20px;padding:24px;box-shadow:0 25px 90px #0008}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal h2{margin:0;font-size:20px}
+.close{background:var(--surface2);color:var(--text);border-radius:10px;width:36px;height:36px;font-size:20px}
+.field{margin-bottom:15px}
+.field label{display:block;color:#b8c9c3;margin-bottom:8px;font-size:12px}
+.field input,.field textarea{width:100%;background:#0b171d;border:1px solid var(--border);border-radius:11px;padding:12px;color:var(--text)}
+.field textarea{min-height:150px;resize:vertical;line-height:2}
+.rowfields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-start;margin-top:18px;flex-wrap:wrap}
+.section-preview{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.section{border:1px solid var(--border);border-radius:13px;padding:13px;background:#0d1a20}
+.section strong{color:var(--green);display:block;margin-bottom:8px}
+.section p{white-space:pre-wrap;line-height:2;margin:0;color:#e0ebe5}
+.read-layout{display:grid;grid-template-columns:200px 1fr;gap:18px}
+.section-nav{display:flex;flex-direction:column;gap:8px}
+.section-nav button{text-align:right;background:var(--surface2);border:1px solid var(--border);padding:12px;border-radius:11px;color:var(--muted)}
+.section-nav button.active{color:var(--green);border-color:#267a57;background:#143326}
+.read-text{font-size:22px;line-height:2.2;white-space:pre-wrap;min-height:220px;padding:18px;background:#0a171c;border-radius:14px;overflow-wrap:anywhere}
+.read-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.read-controls button{padding:9px 13px;border-radius:10px;background:var(--surface2);color:var(--text)}
+.read-controls input{accent-color:var(--green)}
+.audio-row{display:flex;gap:12px;align-items:center;background:#0b171d;border:1px solid var(--border);padding:12px;border-radius:12px;margin-top:12px}
+.audio-row audio{width:100%;height:34px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#1d4035;color:#b8ffdf;padding:12px 18px;border-radius:12px;z-index:40;display:none;box-shadow:0 8px 30px #0005}
+.toast.show{display:block}
+.project-panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:18px;margin:18px 0 24px}
+.project-panel h2{margin:0 0 8px;font-size:19px}
+.project-panel p{color:var(--muted);line-height:1.8;font-size:12px}
+.project-create{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;margin:14px 0}
+.project-create input{min-width:0;background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:12px;color:var(--text)}
+.project-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.project-pick{display:flex;align-items:center;gap:9px;padding:11px;border:1px solid var(--border);border-radius:11px;background:var(--bg);min-width:0}
+.project-pick input{accent-color:var(--theme-accent,var(--green));flex-shrink:0}
+.project-pick span{overflow-wrap:anywhere}
+.project-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-card{border:1px solid var(--border);border-radius:13px;padding:14px;background:var(--bg)}
+.project-card h3{margin:0 0 7px}
+.project-card small{color:var(--muted)}
+.project-card-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.project-card-actions button{padding:9px 10px;border-radius:9px;background:var(--surface2);color:var(--text)}
+.project-output{display:none;margin-top:18px;border-top:1px solid var(--border);padding-top:16px}
+.project-output.show{display:block}
+.project-output h3{margin:0 0 12px}
+.project-song-text{white-space:pre-wrap;line-height:2;background:var(--surface2);padding:14px;border-radius:12px;margin:10px 0}
+.project-song-text h4{margin:0 0 8px;color:var(--theme-accent,var(--green))}
+@media(max-width:850px){.library{grid-template-columns:repeat(2,minmax(0,1fr))}.main{padding:26px 18px}.welcome h1{font-size:25px}}
+@media(max-width:560px){
+.project-create{grid-template-columns:1fr}
+.project-picks,.project-list{grid-template-columns:1fr}
+.topbar{padding:0 16px;height:68px}
+.brand-name{font-size:19px}
+.top-actions .secondary{display:none}
+.main{padding:22px 14px 40px}
+.welcome{align-items:stretch;flex-direction:column}
+.welcome .primary{width:100%}
+.stats{gap:8px}
+.stat{padding:12px 9px;gap:8px;display:block}
+.stat-ico{margin-bottom:9px;width:35px;height:35px}
+.stat strong{font-size:19px}
+.stat small{font-size:10px}
+.toolbar{align-items:stretch;flex-direction:column}
+.search{max-width:none}
+.library{grid-template-columns:1fr}
+.rowfields{grid-template-columns:1fr;gap:0}
+.read-layout{grid-template-columns:1fr}
+.section-nav{flex-direction:row;overflow:auto}
+.section-nav button{white-space:nowrap}
+.read-text{font-size:19px}
+.modal{padding:18px}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+<header class="topbar">
+<div class="brand"><div class="logo">ن</div><div><div class="brand-name">نَفَس</div><div class="brand-sub">آرشیو شخصی مداحی</div></div></div>
+<div class="top-actions"><button class="secondary" id="backupBtn">⇩ پشتیبان‌گیری</button><button class="iconbtn" id="themeBtn" title="تغییر تم">☼</button></div>
+</header>
+<main class="main">
+<section class="welcome">
+<div><div class="eyebrow">آرشیو شخصی شما · آفلاین</div><h1>سلام، به نَفَس خوش اومدی</h1><p>متن‌هات رو مرتب کن، بخش‌بندی کن و موقع اجرا همیشه دم دستت داشته باش.</p></div>
+<button class="primary" id="addBtn">＋ افزودن مداحی جدید</button>
+</section>
+<section class="stats">
+<div class="stat"><div class="stat-ico">▤</div><div><small>کل مداحی‌ها</small><strong id="statSongs">۰</strong></div></div>
+<div class="stat"><div class="stat-ico">☷</div><div><small>بخش‌های ثبت‌شده</small><strong id="statParts">۰</strong></div></div>
+<div class="stat"><div class="stat-ico">♫</div><div><small>دارای فایل صوتی</small><strong id="statAudio">۰</strong></div></div>
+</section>
+<div class="toolbar"><h2>کتابخانه مداحی‌ها</h2><div class="search"><span>⌕</span><input id="searchInput" placeholder="جست‌وجو در عنوان و متن..."></div></div>
+<div class="filters"><button class="filter active" data-filter="all">همه</button><button class="filter" data-filter="audio">دارای صوت</button><button class="filter" data-filter="recent">آخرین ویرایش</button></div>
+<section class="project-panel" id="projectsPanel">
+<h2>پروژه‌ها</h2>
+<p>برای هر اجرا یا مراسم یک پروژه بساز، اسمش را انتخاب کن و از بین مداحی‌های ذخیره‌شده فقط موارد دلخواهت را تیک بزن.</p>
+<div class="project-create"><input id="projectName" maxlength="80" placeholder="اسم پروژه؛ مثلاً مراسم شب جمعه"><button class="primary" id="createProjectBtn">＋ ساخت پروژه از انتخاب‌ها</button></div>
+<div id="projectPicks" class="project-picks"></div><div id="projectList" class="project-list"></div><div id="projectOutput" class="project-output"></div>
+</section>
+<section class="library" id="library"></section>
+<div class="footer-note"><b>🔒 آرشیو خصوصی شما</b><br>اطلاعات این صفحه در همین مرورگر ذخیره می‌شود. برای جلوگیری از ازدست‌رفتن اطلاعات، هرچند وقت یک‌بار پشتیبان بگیر.</div>
+</main>
+</div>
+<div class="overlay" id="editOverlay">
+<div class="modal">
+<div class="modal-head"><h2 id="formTitle">افزودن مداحی</h2><button class="close" data-close="editOverlay">×</button></div>
+<form id="songForm">
+<input type="hidden" id="songId">
+<div class="field"><label for="songTitle">عنوان مداحی</label><input id="songTitle" required placeholder="مثلاً: شب‌های دلتنگی"></div>
+<div class="field"><label for="songText">متن کامل مداحی</label><textarea id="songText" placeholder="متن مداحی را اینجا وارد کن..." required></textarea></div>
+<div class="field"><label for="audioFile">فایل صوتی (اختیاری)</label><input type="file" id="audioFile" accept="audio/*"></div>
+<div class="modal-actions"><button class="primary" type="submit">ذخیره مداحی</button><button class="secondary" type="button" id="autoSplit">تقسیم خودکار</button><button class="secondary" type="button" data-close="editOverlay">انصراف</button></div>
+<div id="splitPreview" class="section-preview"></div>
+</form>
+</div>
+</div>
+<div class="overlay" id="readOverlay">
+<div class="modal">
+<div class="modal-head"><div><div class="eyebrow">حالت مطالعه و اجرا</div><h2 id="readTitle">عنوان مداحی</h2></div><button class="close" data-close="readOverlay">×</button></div>
+<div class="read-layout">
+<div class="section-nav" id="sectionNav"></div>
+<div><div class="read-text" id="readText"></div><div class="read-controls"><button id="prevPart">→ قبلی</button><button id="nextPart">بعدی ←</button><span style="color:var(--muted);font-size:12px">اندازه متن</span><input id="fontSize" type="range" min="16" max="34" value="22"></div><div class="audio-row" id="audioBox" style="display:none">♫ <audio id="audioPlayer" controls></audio></div></div>
+</div>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+let songs=loadSongs(),filter='all',currentRead=null,partIndex=0,tempAudio='';
+function loadSongs(){try{const v=JSON.parse(localStorage.getItem('nafas-demo-songs')||'[]');return Array.isArray(v)?v:[]}catch(e){return []}}
+function openAudioDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window)){reject(new Error('ذخیره‌سازی صوت پشتیبانی نمی‌شود'));return}const req=indexedDB.open('nafas-audio-store',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('audio'))req.result.createObjectStore('audio',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function syncAudioStore(){const db=await openAudioDB();return new Promise((resolve,reject)=>{const tx=db.transaction('audio','readwrite'),store=tx.objectStore('audio'),keep=new Set(songs.map(s=>s.id));songs.forEach(s=>{if(s.audioData)store.put({id:s.id,audioData:s.audioData,audioName:s.audioName||''})});const all=store.getAll();all.onsuccess=()=>all.result.forEach(a=>{if(!keep.has(a.id))store.delete(a.id)});tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}
+async function restoreAudioStore(){try{const db=await openAudioDB();const all=await new Promise((resolve,reject)=>{const req=db.transaction('audio','readonly').objectStore('audio').getAll();req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});db.close();songs=songs.map(s=>{const a=all.find(x=>x.id===s.id);return a?{...s,audioData:a.audioData,audioName:s.audioName||a.audioName}:s});render()}catch(e){console.warn('Audio storage could not be restored',e)}}
+function save(){try{const metadata=songs.map(({audioData,...s})=>({...s,hasAudio:!!audioData}));localStorage.setItem('nafas-demo-songs',JSON.stringify(metadata))}catch(e){console.error(e);toast('ذخیره متن ناموفق بود؛ فضای مرورگر را بررسی کن.');return false}syncAudioStore().catch(e=>{console.error(e);toast('متن ذخیره شد، اما ذخیره صوت ناموفق بود.')});return true}
+function faNum(n){return String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d])}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function splitText(text){const lines=text.split(/\r?\n/),out=[];let title='',cur=[];const flush=()=>{const body=cur.join('\n').trim();if(body)out.push({title:title||`بخش ${out.length+1}`,text:body});cur=[]};for(const line of lines){const m=line.trim().match(/^\[([^\]]+)\]$/);if(m){flush();title=m[1].trim();continue}if(!line.trim()){if(cur.length&&cur[cur.length-1]!=='')cur.push('');continue}cur.push(line)}flush();if(!out.length&&text.trim())out.push({title:'متن اصلی',text:text.trim()});return out.map((p,i)=>({...p,title:p.title||`بخش ${i+1}`}))}
+function getParts(s){return s.parts&&s.parts.length?s.parts:splitText(s.text)}
+function render(){
+const q=document.getElementById('searchInput').value.trim().toLowerCase();
+const shown=songs.filter(s=>{let match=(s.title+' '+s.text+' '+(s.category||'')+' '+(s.subject||'')).toLowerCase().includes(q);if(filter==='audio')match=match&&!!s.audioData;if(filter==='recent')match=match&&Date.now()-(s.updated||0)<86400000;return match});
+document.getElementById('library').innerHTML=shown.length?shown.map(s=>{const p=getParts(s);return `<article class="song" data-song-id="${esc(s.id)}" role="button" tabindex="0" aria-label="نمایش مداحی ${esc(s.title)}"><div class="song-head"><div class="song-symbol">♫</div><button class="more" title="حذف مداحی" onclick="event.stopPropagation();deleteSong('${esc(s.id)}')">⋯</button></div><h3>${esc(s.title)}</h3><p>${esc(s.text.replace(/\[[^\]]+\]/g,'').trim().slice(0,105))}${s.text.length>105?'…':''}</p><div class="song-meta"><span>${faNum(p.length)} بخش</span><span class="tag">${s.audioData?'♫ صوت دارد':esc(s.category||'متن')}</span></div><div class="song-actions"><button class="open-song" onclick="event.stopPropagation();openRead('${esc(s.id)}')">مطالعه مداحی ←</button><button class="edit-song" onclick="event.stopPropagation();editSong('${esc(s.id)}')">ویرایش</button></div></article>`}).join(''):'<div class="empty">مداحی‌ای پیدا نشد. می‌توانی یک مداحی جدید اضافه کنی.</div>';
+document.getElementById('statSongs').textContent=faNum(songs.length);
+document.getElementById('statParts').textContent=faNum(songs.reduce((n,s)=>n+getParts(s).length,0));
+document.getElementById('statAudio').textContent=faNum(songs.filter(s=>s.audioData).length);
+}
+document.getElementById('library').addEventListener('click',e=>{if(e.target.closest('button'))return;const card=e.target.closest('[data-song-id]');if(card)openRead(card.dataset.songId)});
+document.getElementById('library').addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const card=e.target.closest('[data-song-id]');if(card&&e.target===card){e.preventDefault();openRead(card.dataset.songId)}});
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+function show(id){document.getElementById(id).classList.add('show')}
+function hide(id){document.getElementById(id).classList.remove('show')}
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>hide(b.dataset.close));
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)hide(o.id)}));
+document.getElementById('addBtn').onclick=()=>{document.getElementById('songForm').reset();document.getElementById('songId').value='';document.getElementById('formTitle').textContent='افزودن مداحی';document.getElementById('splitPreview').innerHTML='';tempAudio='';show('editOverlay')};
+function editSong(id){const s=songs.find(x=>x.id===id);if(!s)return;document.getElementById('songId').value=id;document.getElementById('songTitle').value=s.title;document.getElementById('songText').value=s.text;document.getElementById('formTitle').textContent='ویرایش مداحی';document.getElementById('splitPreview').innerHTML='';tempAudio=s.audioData||'';show('editOverlay')}
+document.getElementById('autoSplit').onclick=()=>{const parts=splitText(document.getElementById('songText').value);document.getElementById('splitPreview').innerHTML=parts.map(p=>`<div class="section"><strong>${esc(p.title)}</strong><p>${esc(p.text)}</p></div>`).join('');toast(`${faNum(parts.length)} بخش شناسایی شد`)};
+document.getElementById('audioFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>100*1024*1024){toast('حداکثر حجم فایل صوتی ۱۰۰ مگابایت است.');e.target.value='';return}const r=new FileReader();r.onload=()=>{tempAudio=r.result;toast('فایل صوتی آماده ذخیره است.')};r.onerror=()=>toast('خواندن فایل صوتی ناموفق بود.');r.readAsDataURL(f)};
+document.getElementById('songForm').onsubmit=e=>{
+e.preventDefault();
+const id=document.getElementById('songId').value,title=document.getElementById('songTitle').value.trim(),text=document.getElementById('songText').value.trim();
+if(!title||!text)return;
+const old=songs.find(s=>s.id===id);
+const obj={id:id||'s'+Math.random().toString(36).slice(2,10),title,text,audioName:document.getElementById('audioFile').files[0]?.name||old?.audioName||'',audioData:tempAudio||old?.audioData||'',updated:Date.now(),parts:splitText(text),category:old?.category||'روضه',subject:old?.subject||'نامشخص'};
+if(old)songs=songs.map(s=>s.id===id?obj:s);else songs.unshift(obj);
+if(save()){render();renderProjects();hide('editOverlay');toast('مداحی ذخیره شد')}
+};
+function deleteSong(id){const s=songs.find(x=>x.id===id);if(s&&confirm(`مداحی «${s.title}» حذف شود؟`)){songs=songs.filter(x=>x.id!==id);save();render();renderProjects();toast('مداحی حذف شد')}}
+function openRead(id){currentRead=songs.find(s=>s.id===id);if(!currentRead)return;partIndex=0;document.getElementById('readTitle').textContent=currentRead.title;const audio=document.getElementById('audioPlayer');if(currentRead.audioData){audio.src=currentRead.audioData;document.getElementById('audioBox').style.display='flex'}else{audio.removeAttribute('src');document.getElementById('audioBox').style.display='none'}renderRead();show('readOverlay')}
+function renderRead(){if(!currentRead)return;const parts=getParts(currentRead);document.getElementById('sectionNav').innerHTML=parts.map((p,i)=>`<button class="${i===partIndex?'active':''}" onclick="partIndex=${i};renderRead()">${esc(p.title)}</button>`).join('');document.getElementById('readText').textContent=parts[partIndex]?.text||'';document.getElementById('readText').style.fontSize=document.getElementById('fontSize').value+'px';document.getElementById('prevPart').disabled=partIndex===0;document.getElementById('nextPart').disabled=partIndex===parts.length-1}
+document.getElementById('prevPart').onclick=()=>{if(partIndex>0){partIndex--;renderRead()}};
+document.getElementById('nextPart').onclick=()=>{if(currentRead&&partIndex<getParts(currentRead).length-1){partIndex++;renderRead()}};
+document.getElementById('fontSize').oninput=()=>document.getElementById('readText').style.fontSize=document.getElementById('fontSize').value+'px';
+document.getElementById('searchInput').oninput=render;
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));render()});
+document.getElementById('backupBtn').onclick=()=>{const blob=new Blob([JSON.stringify({app:'Nafas Archive',version:1,songs,projects:nafasProjects},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='nafas-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('فایل پشتیبان آماده شد')};
+</script>
+<script>
+// دسته‌بندی مداحی و مشخص کردن موضوع
+(function(){
+const form=document.getElementById('songForm');
+const field=document.createElement('div');field.className='field';field.id='categoryField';
+field.innerHTML='<label>نوع مداحی</label><div class="category-options" role="group" aria-label="نوع مداحی"><button type="button" class="category-choice active" data-category="روضه">روضه</button><button type="button" class="category-choice" data-category="زمینه">زمینه</button><button type="button" class="category-choice" data-category="شور">شور</button><button type="button" class="category-choice" data-category="سایر">سایر</button></div><input id="customCategory" placeholder="موضوع مداحی را بنویس…" maxlength="60" style="display:none;margin-top:10px">';
+const subjectField=document.createElement('div');subjectField.className='field';subjectField.id='subjectField';
+subjectField.innerHTML='<label for="songSubject">متن دربارهٔ چه کسی است؟</label><select id="songSubject" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:12px;color:var(--text)"><option value="نامشخص">انتخاب کنید…</option><option>پیامبر اکرم (ص)</option><option>حضرت علی (ع)</option><option>حضرت فاطمه الزهرا (س)</option><option>امام حسن (ع)</option><option>امام حسین (ع)</option><option>امام سجاد (ع)</option><option>امام محمد باقر (ع)</option><option>امام جعفر صادق (ع)</option><option>امام موسی کاظم (ع)</option><option>امام رضا (ع)</option><option>امام محمد تقی (ع)</option><option>امام علی النقی (ع)</option><option>امام حسن عسکری (ع)</option><option>امام زمان (عج)</option><option>حضرت زینب (س)</option><option>حضرت ابوالفضل العباس (ع)</option><option>حضرت علی‌اکبر (ع)</option><option>حضرت علی‌اصغر (ع)</option><option>حضرت قاسم بن الحسن (ع)</option><option>حضرت رقیه (س)</option><option>حضرت مسلم بن عقیل (ع)</option><option>حضرت حمزه (ع)</option><option>حضرت خدیجه (س)</option><option>حضرت ام‌البنین (س)</option><option>اهل‌بیت (ع)</option><option value="سایر">شخص دیگر / سایر</option></select><input id="customSubject" placeholder="نام شخص یا مناسبت را بنویس…" maxlength="80" style="display:none;margin-top:10px;width:100%;background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:12px;color:var(--text)">';
+const titleField=document.getElementById('songTitle').closest('.field');
+form.insertBefore(field,titleField);form.insertBefore(subjectField,titleField);
+const subjectSelect=document.getElementById('songSubject'),customSubject=document.getElementById('customSubject');
+subjectSelect.onchange=()=>{customSubject.style.display=subjectSelect.value==='سایر'?'block':'none';if(subjectSelect.value!=='سایر')customSubject.value=''};
+const style=document.createElement('style');
+style.textContent='.category-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.category-choice{padding:11px 6px;border:1px solid var(--border);border-radius:11px;background:var(--surface2);color:var(--muted)}.category-choice.active{background:var(--theme-soft,#252d39);border-color:var(--theme-accent,#aab8c9);color:var(--theme-accent,#aab8c9);font-weight:700}#customCategory{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:11px;padding:12px;color:var(--text)}@media(max-width:420px){.category-options{gap:5px}.category-choice{font-size:12px}}';
+document.head.appendChild(style);
+let selected='روضه';const custom=document.getElementById('customCategory');
+function choose(value){selected=value;field.querySelectorAll('[data-category]').forEach(b=>b.classList.toggle('active',b.dataset.category===value));custom.style.display=value==='سایر'?'block':'none';custom.required=value==='سایر';if(value!=='سایر')custom.value=''}
+field.querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>choose(b.dataset.category));
+const oldAdd=document.getElementById('addBtn').onclick;
+document.getElementById('addBtn').onclick=function(){oldAdd();choose('روضه');custom.value='';subjectSelect.value='نامشخص';customSubject.value='';customSubject.style.display='none'};
+const oldEdit=window.editSong;
+window.editSong=function(id){
+oldEdit(id);const s=songs.find(x=>x.id===id);if(!s)return;
+const cat=s.category||'روضه';
+if(['روضه','زمینه','شور'].includes(cat))choose(cat);else{choose('سایر');custom.value=cat}
+const subject=s.subject||'نامشخص';
+if([...subjectSelect.options].some(o=>o.value===subject||o.text===subject)){subjectSelect.value=subject;customSubject.value='';customSubject.style.display='none'}
+else{subjectSelect.value='سایر';customSubject.value=subject;customSubject.style.display='block'}
+};
+const originalSubmit=form.onsubmit;
+form.onsubmit=function(e){
+if(selected==='سایر'&&!custom.value.trim()){e.preventDefault();custom.focus();toast('موضوع مداحی را وارد کن.');return}
+if(subjectSelect.value==='سایر'&&!customSubject.value.trim()){e.preventDefault();customSubject.focus();toast('نام شخص یا مناسبت را وارد کن.');return}
+const wasEditing=!!document.getElementById('songId').value,priorId=document.getElementById('songId').value;
+originalSubmit.call(this,e);
+const saved=wasEditing?songs.find(s=>s.id===priorId):songs[0];
+if(saved){saved.category=selected==='سایر'?custom.value.trim():selected;saved.subject=subjectSelect.value==='سایر'?customSubject.value.trim():subjectSelect.value;save();render()}
+};
+})();
+
+// تم‌های مشکی و آبی
+(function(){
+const style=document.createElement('style');
+style.textContent=`
+:root{--theme-accent:#aab8c9;--theme-soft:#252d39;--theme-glow:#aab8c91c}
+.logo{background:linear-gradient(145deg,var(--theme-accent),#18202b);box-shadow:0 8px 25px var(--theme-glow)}
+.primary{background:var(--theme-accent);box-shadow:0 7px 22px var(--theme-glow);color:#081018}
+.eyebrow,.stat-ico,.song-symbol,.tag,.footer-note b{color:var(--theme-accent)}
+.stat-ico,.song-symbol,.filter.active,.section-nav button.active,.open-song{background:var(--theme-soft);color:var(--theme-accent)}
+.topbar,.stat,.song,.footer-note,.modal,.search input,.field input,.field textarea,.section,.read-text,.audio-row,.iconbtn,.secondary,.filter,.section-nav button,.read-controls button{transition:background-color .25s,border-color .25s,color .25s,box-shadow .25s}
+.theme-menu{position:absolute;top:64px;left:5vw;display:none;gap:8px;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:15px;box-shadow:0 15px 45px #0007;z-index:30}
+.theme-menu.show{display:flex}
+.theme-choice{display:flex;align-items:center;gap:8px;background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:11px;padding:10px 13px}
+.theme-choice.active{border-color:var(--theme-accent);box-shadow:0 0 0 1px var(--theme-accent)}
+.theme-dot{width:13px;height:13px;border-radius:50%;display:inline-block}
+body[data-theme="black"]{--bg:#080b10;--surface:#11151c;--surface2:#1a202a;--border:#303845;--muted:#9aa6b6;--text:#f3f6fb;--green:#aab8c9;--theme-accent:#aab8c9;--theme-soft:#252d39;--theme-glow:#aab8c91c;--site-background:#080b10;--site-on-background:#f3f6fb;background:#080b10;color:#f3f6fb}
+body[data-theme="black"] .topbar{background:#0b0e13}
+body[data-theme="black"] .stat{background:linear-gradient(140deg,#11151c,#0c1016)}
+body[data-theme="black"] .footer-note{background:#10141a}
+body[data-theme="black"] .modal{background:#11151c;border-color:#303845}
+body[data-theme="black"] .field input,body[data-theme="black"] .field textarea{background:#090c11;border-color:#303845}
+body[data-theme="black"] .section{background:#0d1117}
+body[data-theme="black"] .read-text{background:#080b10}
+body[data-theme="black"] .audio-row{background:#090c11;border-color:#303845}
+body[data-theme="blue"]{--bg:#071426;--surface:#0d2039;--surface2:#142d4b;--border:#24466a;--muted:#9bb4d1;--text:#edf6ff;--green:#59b7ff;--theme-accent:#59b7ff;--theme-soft:#143b62;--theme-glow:#318fe944;--site-background:#071426;--site-on-background:#edf6ff;background:#071426;color:#edf6ff}
+body[data-theme="blue"] .topbar{background:#091a30}
+body[data-theme="blue"] .stat{background:linear-gradient(140deg,#0d2039,#0a1a30)}
+body[data-theme="blue"] .footer-note{background:#0b1c32}
+body[data-theme="blue"] .modal{background:#0d2039;border-color:#24466a}
+body[data-theme="blue"] .field input,body[data-theme="blue"] .field textarea{background:#08182b;border-color:#24466a}
+body[data-theme="blue"] .section{background:#0a1b30}
+body[data-theme="blue"] .read-text{background:#061629}
+body[data-theme="blue"] .audio-row{background:#08182b;border-color:#24466a}
+`;
+document.head.appendChild(style);
+const btn=document.getElementById('themeBtn');
+const menu=document.createElement('div');menu.id='themeMenu';menu.className='theme-menu';menu.setAttribute('role','group');menu.setAttribute('aria-label','انتخاب تم رنگی');
+menu.innerHTML='<button class="theme-choice" data-theme-choice="black"><span class="theme-dot" style="background:#aab8c9"></span>مشکی</button><button class="theme-choice" data-theme-choice="blue"><span class="theme-dot" style="background:#59b7ff"></span>آبی</button>';
+document.querySelector('.topbar').appendChild(menu);
+btn.textContent='◐ تم';btn.title='انتخاب تم';btn.setAttribute('aria-expanded','false');
+function setTheme(theme){document.body.dataset.theme=theme;menu.querySelectorAll('[data-theme-choice]').forEach(b=>b.classList.toggle('active',b.dataset.themeChoice===theme));try{localStorage.setItem('nafas-color-theme',theme)}catch(e){}menu.classList.remove('show');btn.setAttribute('aria-expanded','false')}
+btn.onclick=()=>{menu.classList.toggle('show');btn.setAttribute('aria-expanded',menu.classList.contains('show')?'true':'false')};
+menu.querySelectorAll('[data-theme-choice]').forEach(b=>b.onclick=()=>setTheme(b.dataset.themeChoice));
+document.addEventListener('click',e=>{if(!e.target.closest('#themeBtn')&&!e.target.closest('#themeMenu')){menu.classList.remove('show');btn.setAttribute('aria-expanded','false')}});
+try{setTheme(localStorage.getItem('nafas-color-theme')==='blue'?'blue':'black')}catch(e){setTheme('black')}
+})();
+
+// پروژه‌های انتخابی
+let nafasProjects=[];
+try{nafasProjects=JSON.parse(localStorage.getItem('nafas-projects')||'[]');if(!Array.isArray(nafasProjects))nafasProjects=[]}catch(e){nafasProjects=[]}
+function saveProjects(){try{localStorage.setItem('nafas-projects',JSON.stringify(nafasProjects))}catch(e){toast('ذخیره پروژه در مرورگر ناموفق بود.')}}
+let projectPickOrder=[];
+document.getElementById('projectPicks').addEventListener('change',e=>{const input=e.target;if(!input.matches('input[type="checkbox"]'))return;if(input.checked){projectPickOrder=projectPickOrder.filter(id=>id!==input.value);projectPickOrder.push(input.value)}else projectPickOrder=projectPickOrder.filter(id=>id!==input.value)});
+function renderProjectPicks(){const el=document.getElementById('projectPicks');if(!songs.length){el.innerHTML='<div class="empty">اول یک مداحی ذخیره کن؛ بعد می‌توانی آن را به پروژه اضافه کنی.</div>';return}el.innerHTML=songs.map(s=>`<label class="project-pick"><input type="checkbox" value="${esc(s.id)}"><span>${esc(s.title)}</span></label>`).join('')}
+function renderProjects(){document.getElementById('projectList').innerHTML=nafasProjects.length?nafasProjects.map(p=>`<div class="project-card"><h3>${esc(p.name)}</h3><small>${faNum(p.songIds.length)} مداحی انتخاب‌شده</small><div class="project-card-actions"><button onclick="openProject('${esc(p.id)}')">باز کردن متن‌ها</button><button onclick="deleteProject('${esc(p.id)}')">حذف پروژه</button></div></div>`).join(''):'<div class="empty">هنوز پروژه‌ای نساختی.</div>';renderProjectPicks()}
+document.getElementById('createProjectBtn').onclick=()=>{
+const name=document.getElementById('projectName').value.trim(),checked=[...document.querySelectorAll('#projectPicks input:checked')].map(x=>x.value),checkedSet=new Set(checked),ids=projectPickOrder.filter(id=>checkedSet.has(id));
+checked.forEach(id=>{if(!ids.includes(id))ids.push(id)});
+if(!name){toast('برای پروژه یک اسم بنویس.');document.getElementById('projectName').focus();return}
+if(!ids.length){toast('حداقل یک مداحی را انتخاب کن.');return}
+nafasProjects.unshift({id:'p'+Math.random().toString(36).slice(2,10),name,songIds:ids,created:Date.now()});
+saveProjects();document.getElementById('projectName').value='';document.querySelectorAll('#projectPicks input').forEach(x=>x.checked=false);projectPickOrder=[];renderProjects();toast('پروژه ساخته شد')
+};
+function openProject(id){
+const p=nafasProjects.find(x=>x.id===id);if(!p)return;
+const selected=p.songIds.map(sid=>songs.find(s=>s.id===sid)).filter(Boolean);
+const win=window.open('about:blank','_blank');
+if(!win){toast('مرورگر اجازه باز کردن صفحه جدید را نداد؛ پنجره‌های بازشو را فعال کن.');return}
+const content=selected.length?selected.map((s,i)=>`<article class="song"><h2>${faNum(i+1)} ـ ${esc(s.title)}</h2><div class="project-song-text">${esc(s.text)}</div></article>`).join(''):'<p>مداحی‌های این پروژه دیگر در آرشیو نیستند.</p>';
+win.document.open();
+win.document.write(`<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(p.name)} | نَفَس</title><style>*{box-sizing:border-box}body{margin:0;background:#080b10;color:#f3f6fb;font-family:Tahoma,Arial,sans-serif;line-height:2}.wrap{max-width:900px;margin:auto;padding:24px 16px 50px}header{position:sticky;top:0;background:#0b0e13;border-bottom:1px solid #303845;padding:14px 16px;z-index:2}h1{font-size:24px;margin:0 0 4px}small{color:#9aa6b6}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.actions button{border:1px solid #303845;background:#1a202a;color:#f3f6fb;border-radius:10px;padding:10px 14px;font:inherit;cursor:pointer}.song{background:#11151c;border:1px solid #303845;border-radius:14px;padding:18px;margin:14px 0;break-inside:avoid}.song h2{font-size:18px;color:#aab8c9;margin:0 0 10px}.project-song-text{white-space:pre-wrap;overflow-wrap:anywhere}.empty{color:#9aa6b6}@media print{body{background:white;color:black}.wrap{max-width:none;padding:0}.song{background:white;color:black;border:1px solid #bbb}.song h2{color:#333}header{position:static;background:white;color:black}.actions{display:none}}</style></head><body><header><div class="wrap" style="padding:0"><h1>${esc(p.name)}</h1><small>${faNum(selected.length)} مداحی در این پروژه</small></div></header><main class="wrap"><div class="actions"><button onclick="copyAll()">کپی همه متن‌ها</button><button onclick="window.print()">چاپ / ذخیره PDF</button></div><section id="texts">${content}</section></main><script>function copyAll(){const text=${JSON.stringify(p.name+'\n\n'+selected.map((s,i)=>`${i+1}. ${s.title}\n\n${s.text}`).join('\n\n--------------------\n\n'))};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(()=>alert('متن‌ها کپی شدند')).catch(()=>fallback(text));else fallback(text)}function fallback(text){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');alert('متن‌ها کپی شدند')}catch(e){alert('کپی خودکار ممکن نشد')}t.remove()}<\/script></body></html>`);
+win.document.close()
+}
+function copyProject(id){const p=nafasProjects.find(x=>x.id===id);if(!p)return;const text=p.name+'\n\n'+p.songIds.map(sid=>songs.find(s=>s.id===sid)).filter(Boolean).map((s,i)=>`${i+1}. ${s.title}\n\n${s.text}`).join('\n\n--------------------\n\n');if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(()=>toast('متن پروژه کپی شد')).catch(()=>fallbackCopy(text));else fallbackCopy(text)}
+function fallbackCopy(text){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('متن پروژه کپی شد')}catch(e){toast('کپی خودکار ممکن نشد')}t.remove()}
+function deleteProject(id){const p=nafasProjects.find(x=>x.id===id);if(p&&confirm(`پروژه «${p.name}» حذف شود؟`)){nafasProjects=nafasProjects.filter(x=>x.id!==id);saveProjects();renderProjects();document.getElementById('projectOutput').classList.remove('show');toast('پروژه حذف شد')}}
+const projectRender=render;
+render=function(){projectRender();renderProjectPicks()};
+renderProjects();
+restoreAudioStore();
+</script>
+</body>
+</html>
